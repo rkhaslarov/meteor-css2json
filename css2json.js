@@ -34,14 +34,13 @@ CSS2JSON = {
 				let css = styleStr.slice(selectorPos + selector.length, styleStr.indexOf("}", selectorPos));
 				let styles = css.split(';').filter(v => !_.isEmpty(v));
 
-				if (!css.includes(styles)) {
+				_.each(styles, (style, index) => {
 
-					_.each(styles, (style, index) => {
+					if (!_.isEmpty(style)) {
 
-						if (!_.isEmpty(style)) {
+						style = style.split(':');
 
-							style = style.split(':');
-
+						if (style.length == 2) {
 							let name = style.shift().trim();
 							let value = style.shift().trim();
 
@@ -54,11 +53,9 @@ CSS2JSON = {
 							}
 						}
 
-					});
+					}
 
-				} else {
-					throw new Error('CSS2JSON SyntaxError: Unexpected token ;');
-				}
+				});
 
 			});
 		}

@@ -1,6 +1,6 @@
 Package.describe({
 	name: 'rkhaslarov:css2json',
-	version: '1.0.0',
+	version: '1.0.1',
 	summary: 'This package provides a css2json conventer.',
 	git: 'https://github.com/rkhaslarov/css2json',
 	documentation: 'README.md'
